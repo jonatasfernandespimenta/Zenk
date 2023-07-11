@@ -3,7 +3,11 @@ import { logRoutes } from "./controllers/logs/routes";
 import { ZodError } from "zod";
 import { env } from "src/env";
 
+import cors from "@fastify/cors";
+
 export const app = fastify();
+
+app.register(cors, { origin: true });
 
 app.register(logRoutes);
 
